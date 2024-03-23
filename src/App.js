@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {BrowserRouter, Routes ,Route} from 'react-router-dom';
+import Studentslist from './components/listofstudents';
+import Favouritestudents from './components/favoritestudents';
+import Studentcontextprovider from './components/studentcontext';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return(
+        <>
+        <BrowserRouter>
+
+        <Studentcontextprovider>
+        <Routes>
+         
+          <Route path="/" element={<Studentslist/>}></Route>
+          <Route path="/favouritestudents" element={<Favouritestudents/>}></Route>
+         
+        </Routes>
+        </Studentcontextprovider>
+        </BrowserRouter>
+        </>
+    )
+
 }
 
 export default App;
